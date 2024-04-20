@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.card-container {
+  align-self: flex-start; 
+  padding-top: 40px/* Aligns the cards at the start of the container */
+}
+
+.bg-red {
+  background-color: red;
+}
+
+.bg-blue {
+  background-color: blue;
+}
+
+.bg-green {
+  background-color: green;
+}
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
