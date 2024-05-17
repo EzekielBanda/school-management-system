@@ -1,84 +1,73 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+// component/login/Login.jsx
+
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => {
-    setPassword(e.target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Add your authentication logic here
-    // If authentication is successful, navigate to the dashboard
-    if (email === "user@example.com" && password === "password") {
-      navigate("/dashboard");
+  const handleLogin = () => {
+    // Perform login validation
+    if (username === 'admin' && password === 'admin123') {
+      // Navigate to the dashboard on successful login
+      navigate('/dashboard');
     } else {
-      alert("Invalid login credentials");
+      setError('Invalid username or password');
     }
   };
 
   return (
-    <div className="max-w-md mx-auto mt-4 shadow-lg rounded-md overflow-hidden">
-      <div className="px-8 py-8 bg-white">
-        <h1 className="text-2xl font-bold mb-4 text-center">Login</h1>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4 relative">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              className={`w-full px-3 py-2 border rounded-md focus:outline-none transition duration-200 ${
-                email !== "" ? "border-blue-500" : ""
-              }`}
-              value={email}
-              onChange={handleEmailChange}
-              required
-            />
-            <label
-              className={`absolute left-3 top-1/2 transform -translate-y-1/2 transition-all duration-200 ${
-                email !== "" ? "text-blue-500 -translate-y-full" : ""
-              }`}
-              htmlFor="email"
-            >
-              Email *
+    <div className="flex justify-center items-center h-screen">
+      <div className="w-full max-w-md">
+        <form className="bg-white shadow-lg rounded px-4 pt-6 pb-8 mb-4">
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="username">
+              Username
             </label>
-          </div>
-          <div className="mb-4 relative">
             <input
-              type="password"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+              id="username"
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div className="mb-6">
+            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="password">
+              Password
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
               id="password"
-              name="password"
-              className={`w-full px-3 py-2 border rounded-md focus:outline-none transition duration-200 ${
-                password !== "" ? "border-blue-500" : ""
-              }`}
+              type="password"
+              placeholder="******************"
               value={password}
-              onChange={handlePasswordChange}
-              required
+              onChange={(e) => setPassword(e.target.value)}
             />
-            <label
-              className={`absolute left-3 top-1/2 transform -translate-y-1/2 transition-all duration-200 ${
-                password !== "" ? "text-blue-500 -translate-y-full" : ""
-              }`}
-              htmlFor="password"
+            <p className="text-red-500 text-xs italic">{error}</p>
+
+            <a
+              className="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800"
+              href="/forget"
             >
-              Password *
-            </label>
+              Forgot Password?
+            </a>
           </div>
-          <button
-            type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-md hover:bg-blue-600 transition-colors"
-          >
-            Login
-          </button>
+          <div className="flex items-center justify-between">
+            <button
+              className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-full focus:outline-none focus:shadow-outline"
+              type="button"
+              onClick={handleLogin}
+            >
+              Login
+            </button>
+          </div>
         </form>
+        <p className="text-center text-gray-500 text-xs">&copy;2024 Unitech Corp. All rights reserved.</p>
       </div>
     </div>
   );

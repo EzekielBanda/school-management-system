@@ -1,25 +1,25 @@
 // App.js
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import Home from './pages/Home'; 
-import Login from './component/login/Login'; 
-import NavBar from './component/navbar/NavBar'; 
+import Home from './pages/Home';
+import Login from './component/login/Login';
+import NavBar from './component/navbar/NavBar';
 import Dashboard from './pages/Dashboard';
+import { AuthProvider } from './context/AuthContext';
 
 const App = () => {
   return (
-    <Router>
-      <div className="flex h-screen">
+    <AuthProvider>
+      <Router>
         <Navigation />
-        <div className="flex-grow overflow-auto px-4 py-4">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/dashboard/*" element={<Dashboard />} /> {/* Nested routes for /dashboard */}
-          </Routes>
-        </div>
-      </div>
-    </Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/dashboard/*" element={<Dashboard />} />
+          {/* Add more routes as needed */}
+        </Routes>
+      </Router>
+    </AuthProvider>
   );
 };
 

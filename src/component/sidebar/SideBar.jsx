@@ -1,16 +1,16 @@
-// SideBar.js
-import React, { useState, useEffect, useRef } from "react";
-import { FiCheckSquare } from "react-icons/fi";
-import { FaGraduationCap, FaChevronLeft, FaChevronRight, FaHome, FaUserGraduate, FaChalkboardTeacher, FaUsers, FaAlignCenter, FaList, FaSitemap } from "react-icons/fa";
-import { IoMailOpenSharp } from "react-icons/io5";
-import { TbReport } from "react-icons/tb";
+// component/sidebar/SideBar.js
+import React, { useState, useEffect, useRef } from 'react';
+import { FiCheckSquare } from 'react-icons/fi';
+import { FaGraduationCap, FaChevronLeft, FaChevronRight, FaHome, FaUserGraduate, FaChalkboardTeacher, FaUsers, FaAlignCenter, FaList, FaSitemap } from 'react-icons/fa';
+import { IoMailOpenSharp } from 'react-icons/io5';
+import { TbReport } from 'react-icons/tb';
 import { Link, useLocation } from 'react-router-dom';
 
 const SideBar = () => {
   const [isOpen, setIsOpen] = useState(true);
   const location = useLocation();
   const active = location.pathname;
-  const navRef = useRef(null); // useRef hook to access the nav element
+  const navRef = useRef(null);
 
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
@@ -28,18 +28,16 @@ const SideBar = () => {
     </Link>
   );
 
-  // Scroll to last link on component mount (useEffect)
   useEffect(() => {
     const nav = navRef.current;
     if (nav) {
       const contentHeight = nav.scrollHeight;
       const containerHeight = nav.clientHeight;
-      // Scroll only if content height is greater than container height
       if (contentHeight > containerHeight) {
-        nav.scrollTop = contentHeight - containerHeight; // Adjust scroll position
+        nav.scrollTop = contentHeight - containerHeight;
       }
     }
-  }, []); // Empty dependency array ensures it runs only once on mount
+  }, []);
 
   return (
     <div className={`flex flex-col h-screen transition-width duration-300 ${isOpen ? 'w-64' : 'w-16'} bg-gray-100`}>
@@ -49,7 +47,7 @@ const SideBar = () => {
         </button>
         {isOpen && <span className="text-lg font-medium">MKMCH SEC SCH</span>}
       </div>
-      <nav className={`flex flex-col space-y-2 px-4 py-3 overflow-y-auto h-full`} ref={navRef}>
+      <nav className="flex flex-col space-y-2 px-4 py-3 overflow-y-auto h-full" ref={navRef}>
         <SideBarLink to="/dashboard/" icon={<FaHome className="text-xl" />}>Home</SideBarLink>
         <SideBarLink to="/dashboard/students" icon={<FaUserGraduate className="text-xl" />}>Students</SideBarLink>
         <SideBarLink to="/dashboard/teachers" icon={<FaChalkboardTeacher className="text-xl" />}>Teachers</SideBarLink>
@@ -61,7 +59,7 @@ const SideBar = () => {
         <SideBarLink to="/dashboard/reports" icon={<TbReport className="text-xl" />}>School Report</SideBarLink>
         <SideBarLink to="/dashboard/exams" icon={<FaGraduationCap className="text-xl" />}>Exams</SideBarLink>
         <SideBarLink to="/dashboard/message" icon={<IoMailOpenSharp className="text-xl" />}>Message</SideBarLink>
-      </nav>  
+      </nav>
     </div>
   );
 }
