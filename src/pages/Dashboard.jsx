@@ -13,14 +13,17 @@ const Dashboard = () => {
   return (
     <div className="flex flex-col h-screen">
       <TopBar user={user} />
-      <div className="flex flex-grow mt-16">
+      <div className="py-8 shadow border-b mt-6"></div>
+      <div className="flex flex-grow mt-0"> {/* Adjust margin to fit below the TopBar */}
         <SideBar />
-        <div className="flex flex-col flex-grow p-4 overflow-auto">
-          <Routes>
-            <Route path="/" element={<HomeDashboard />} />
-            <Route path="students" element={<StudentForm />} />
-            {/* Add more nested routes here */}
-          </Routes>
+        <div className="dashboard-content flex flex-col flex-grow p-4">
+          <div className="overflow-auto h-full">
+            <Routes>
+              <Route path="/" element={<HomeDashboard />} />
+              <Route path="students" element={<StudentForm />} />
+              {/* Add more nested routes here */}
+            </Routes>
+          </div>
         </div>
       </div>
     </div>

@@ -15,8 +15,11 @@ module.exports = withMT({
         'purple': '0 4px 14px 0 rgba(128, 0, 128, 0.39)',
         'pink': '0 4px 14px 0 rgba(255, 105, 180, 0.39)',
       },
+      scrollbar: ['dark']
     },
   },
   variants: {},
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar')
+  ],
 });
