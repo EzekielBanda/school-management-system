@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // This is a React Router v6 app
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom"
 
 const Profile = ({ user }) => {
   const [isOpen, setIsOpen] = useState(false);

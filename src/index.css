@@ -7,39 +7,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.login-form {
-  display: flex; /* Set the container to display as flexbox */
-  flex-direction: column; /* Arrange elements vertically */
-  align-items: center; /* Center elements horizontally */
-  justify-content: center; /* Center elements vertically within the container */
-  max-width: 400px; /* Set a maximum width */
-  margin: 0 auto; /* Center horizontally */
-  padding: 2rem; /* Add some padding */
-}
-
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-.card-container {
-  align-self: flex-start; 
-  padding-top: 40px/* Aligns the cards at the start of the container */
-}
-
-.bg-red {
-  background-color: red;
-}
-
-.bg-blue {
-  background-color: blue;
-}
-
-.bg-green {
-  background-color: green;
-}
-
 
 @tailwind base;
 @tailwind components;

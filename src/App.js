@@ -2,9 +2,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './pages/Home';
-import Login from './component/login/Login';
-import NavBar from './component/navbar/NavBar';
-import Dashboard from './pages/Dashboard';
+import Login from './components/login/Login';
+import NavBar from './components/navbar/NavBar';
+import MainPage from './pages/MainPage';
 import { AuthProvider } from './context/AuthContext';
 
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/dashboard/*" element={<Dashboard />} />
+          <Route path="/main-page/*" element={<MainPage />} />
           {/* Add more routes as needed */}
         </Routes>
       </Router>
@@ -25,7 +25,7 @@ const App = () => {
 
 const Navigation = () => {
   const location = useLocation();
-  const isDashboard = location.pathname.startsWith("/dashboard");
+  const isDashboard = location.pathname.startsWith("/main-page");
 
   return isDashboard ? null : <NavBar />; // Don't show NavBar on dashboard routes
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import Login from "../component/login/Login";
+import Login from "../components/login/Login";
 
 const Home = () => {
   const location = useLocation();

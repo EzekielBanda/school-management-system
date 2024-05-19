@@ -13,7 +13,7 @@ const Login = () => {
     // Perform login validation
     if (username === 'admin' && password === 'admin123') {
       // Navigate to the dashboard on successful login
-      navigate('/dashboard');
+      navigate('/main-page');
     } else {
       setError('Invalid username or password');
     }
