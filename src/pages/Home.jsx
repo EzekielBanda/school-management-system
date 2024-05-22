@@ -11,7 +11,7 @@ const Home = () => {
   return (
     <div className="flex justify-center mt-8"> {/* Add margin-top to create space */}
       {/* Render Login component only when the current route is "/login" */}
-      {isLoginPage && <Login />}
+      {isLoginPage && <Login /> }
     </div>
   );
 }

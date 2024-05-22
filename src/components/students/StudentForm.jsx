@@ -62,8 +62,8 @@ const StudentForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-center w-full bg-gray-100">
-      <div className="w-full max-w-4xl p-6 bg-white rounded-lg shadow-lg">
+    <div className="flex-auto items-center w-full bg-gray-100">
+      <div className="w-full p-6 bg-white shadow-lg">
         <h1 className="text-2xl font-bold mb-6">Add Student</h1>
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="grid grid-cols-2 gap-6">
