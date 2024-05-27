@@ -8,9 +8,11 @@ import { Routes, Route } from 'react-router-dom';
 
 const MainPage = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen ">
       <TopBar />
-      <div className="py-8 shadow border-b mt-6"></div>
+      <div className="">
+        <div className="py-8 shadow-md border-b mt-6"></div>
+      </div>
       <div className="flex flex-grow mt-0">
         <Sidebar />
         <div className="flex-grow ml-64 md:ml-0">
